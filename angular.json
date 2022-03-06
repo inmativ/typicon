@@ -3,11 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "typicon": {
+    "typicaris": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush",
+          "skipTests": true
         },
         "@schematics/angular:application": {
           "strict": true
@@ -20,7 +22,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/typicon",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "typicon:build:production"
+              "browserTarget": "typicaris:build:production"
             },
             "development": {
-              "browserTarget": "typicon:build:development"
+              "browserTarget": "typicaris:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "typicon:build"
+            "browserTarget": "typicaris:build"
           }
         },
         "test": {
@@ -103,9 +105,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "typicon"
+  "defaultProject": "typicaris",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
