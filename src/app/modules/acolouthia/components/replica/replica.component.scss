@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  overflow: auto;
+}
+
+:host([character="choir"]) {
+  font-size: 1.2em;
+  line-height: 1.3em;
+}
+
+:host([character="priest"]),
+:host([character="clergy"]) {
+  line-height: 1.3em;
+  font-weight: bold;
+}
+
+@mixin cinnabar {
+  color: red;
+  font-weight: bold;
+}
+
+.character {
+  white-space: nowrap;
+  @include cinnabar;
+}
+
+.replica {
+  width: calc(100% - 90px);
+  float: right;
+  text-indent: 20px;
+
+  &::first-letter,
+  &::ng-deep p::first-letter,
+  &::ng-deep span::first-letter {
+    @include cinnabar;
+  }
+  &::ng-deep span {
+    display: inline-block;
+  }
+}
