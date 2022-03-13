@@ -34,7 +34,9 @@
   &::ng-deep span::first-letter {
     @include cinnabar;
   }
+  
   &::ng-deep span {
+    text-indent: 0;
     display: inline-block;
   }
 }
