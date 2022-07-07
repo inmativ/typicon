@@ -1,3 +1,10 @@
+@import "mixins/text";
+
+@mixin cinnabar {
+  color: red;
+  font-weight: bold;
+}
+
 :host {
   display: block;
   overflow: auto;
@@ -14,19 +21,13 @@
   font-weight: bold;
 }
 
-@mixin cinnabar {
-  color: red;
-  font-weight: bold;
-}
-
 .character {
   white-space: nowrap;
   @include cinnabar;
 }
 
 .replica {
-  width: calc(100% - 90px);
-  float: right;
+  @include text;
   text-indent: 20px;
 
   &::first-letter,
@@ -34,7 +35,7 @@
   &::ng-deep span::first-letter {
     @include cinnabar;
   }
-  
+
   &::ng-deep span {
     text-indent: 0;
     display: inline-block;
