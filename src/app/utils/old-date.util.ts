@@ -1,5 +1,5 @@
 import { DAY } from '@constants';
-import { DayNumber, MonthNumber, SimpleDateString } from '@models';
+import { DayNumber, MonthNumber, SimpleDateString, YearNumber } from '@models';
 
 const THIRTEEN_LOWER_EDGE = -2202768000000;
 const THIRTEEN_UPPER_EDGE = 4108752000000;
@@ -17,22 +17,29 @@ const THIRTEEN_UPPER_EDGE = 4108752000000;
  */
 const MS_DIFFERENCE = 13 * DAY;
 
-export class OldDate extends Date {
-  private _oldDate: Date;
+export type IOldDate = Date
 
-  constructor(dateString: SimpleDateString | number | Date) {
-    super(dateString);
+export class OldDate extends Date implements IOldDate {
+  constructor(dateString?: SimpleDateString | number | Date) {
+    dateString ? super(dateString) : super();
+
     this._assertRange();
+  }
 
-    this._oldDate = this._getOldDate(dateString);
+  override setDate(number: number): number {
+    return super.setDate(number + 13);
   }
 
   override getDate(): DayNumber {
-    return this._oldDate.getDate();
+    return this._oldDate().getDate();
   }
 
   override getMonth(): MonthNumber {
-    return this._oldDate.getMonth();
+    return this._oldDate().getMonth();
+  }
+
+  override getFullYear(): YearNumber {
+    return this._oldDate().getFullYear();
   }
 
   private _assertRange(): void {
@@ -43,8 +50,8 @@ export class OldDate extends Date {
     }
   }
 
-  private _getOldDate(dateString: SimpleDateString | number | Date): Date {
-    const newDate = new Date(dateString).getTime();
-    return new Date(newDate - MS_DIFFERENCE);
+  private _oldDate(): Date {
+    const newTime = super.getTime();
+    return new Date(newTime - MS_DIFFERENCE);
   }
 }

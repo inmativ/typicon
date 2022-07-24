@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { OldDate } from '@utils';
+import { IOldDate } from '@utils';
 
 import { Worship } from '../../models';
 import { Menologion } from '../menologion';
@@ -11,7 +11,7 @@ export class WorshipService {
 
   }
 
-  getByDate(date: OldDate): Worship {
+  getByDate(date: IOldDate): Worship {
     const memoryFactory = this._menologion.getMemory(date);
 
     return memoryFactory as any;

@@ -1,6 +1,6 @@
-import { DayInstructions, TypikonSign } from '@models';
+import { Day, TypikonSign } from '../models';
 
-export const DECEMBER: DayInstructions[] = [
+export const DECEMBER: Day[] = [
   {
     memories: [
       {
