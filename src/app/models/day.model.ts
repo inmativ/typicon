@@ -26,6 +26,8 @@ export type Memory = {
   service?: Service;
 };
 
+export type DayFactory = ((weekDay: number) => DayInstructions);
+
 export type DayInstructions = {
   memories: Memory[];
   weekDay?: WeekDay;

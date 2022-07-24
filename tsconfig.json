@@ -22,6 +22,8 @@
     "paths": {
       "@models": ["src/app/models"],
       "@models/*": ["src/app/models/*"],
+      "@constants": ["src/app/constants"],
+      "@constants/*": ["src/app/constants/*"],
       "@utils": ["src/app/utils"],
       "@utils/*": ["src/app/utils/*"]
     }
