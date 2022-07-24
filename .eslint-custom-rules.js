@@ -1,6 +1,7 @@
 module.exports = {
   rules: {
     "array-bracket-spacing": ["error", "never"],
+    "arrow-spacing": ["error", { before: true, after: true }],
     "arrow-body-style": ["error", "as-needed"],
     "comma-dangle": ["error", "always-multiline"],
     "comma-spacing": ["error", { before: false, after: true }],
@@ -8,7 +9,7 @@ module.exports = {
     "key-spacing": ["error"],
     "lines-between-class-members": ["error", "always"],
     "max-len": ["error", { code: 120, ignoreStrings: true, ignoreTemplateLiterals: true }],
-    "newline-per-chained-call": ["error", { ignoreChainWithDepth: 1 }],
+    "newline-per-chained-call": ["error", { ignoreChainWithDepth: 2 }],
     "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 0 }],
     "no-multi-spaces": "error",
     "no-trailing-spaces": "error",
@@ -23,7 +24,7 @@ module.exports = {
     "space-before-function-paren": ["error", "never"],
     "space-in-parens": ["error", "never"],
 
-    "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/explicit-function-return-type": ["warn", { allowExpressions: true }],
     "@typescript-eslint/type-annotation-spacing": ["error", { after: true }],
     "@typescript-eslint/no-redundant-type-constituents": "warn",
     "@typescript-eslint/space-infix-ops": "error",
