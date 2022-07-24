@@ -1,9 +1,9 @@
-import { DayInstructions, TypikonSign } from '../../../app/models';
+import { Day, TypikonSign } from '../../../app/models';
 
 /**
  @description
  Месяц декемврий имеяй дней 31. День имать часов 9, а нощь часов 15. */
-export function december(): DayInstructions[] {
+export function december(): Day[] {
   return [
     {
       memories: [

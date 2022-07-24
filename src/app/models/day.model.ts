@@ -26,6 +26,11 @@ export type Memory = {
   service?: Service;
 };
 
+export type DayInstructions = {
+  memories: Memory[];
+  weekDay?: WeekDay;
+};
+
 export type Day = {
   memories: Memory[];
   weekDay?: WeekDay;
