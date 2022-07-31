@@ -1,10 +1,13 @@
 module.exports = {
   rules: {
     "array-bracket-spacing": ["error", "never"],
+    "arrow-parens": ["error", "always"],
     "arrow-spacing": ["error", { before: true, after: true }],
     "arrow-body-style": ["error", "as-needed"],
     "comma-dangle": ["error", "always-multiline"],
     "comma-spacing": ["error", { before: false, after: true }],
+    "eol-last": ["error", "always"],
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
     indent: ["error", 2],
     "key-spacing": ["error"],
     "lines-between-class-members": ["error", "always"],
@@ -23,7 +26,10 @@ module.exports = {
     "space-before-blocks": "error",
     "space-before-function-paren": ["error", "never"],
     "space-in-parens": ["error", "never"],
+
+    "rxjs/no-ignored-subscription": "error",
     
+    "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
     "@typescript-eslint/explicit-member-accessibility": [
       "error",
       {
@@ -39,6 +45,7 @@ module.exports = {
       },
     ],
     "@typescript-eslint/explicit-function-return-type": ["warn", { allowExpressions: true }],
+    "@typescript-eslint/quotes": ["error", "single"],
     "@typescript-eslint/type-annotation-spacing": ["error", { after: true }],
     "@typescript-eslint/no-redundant-type-constituents": "warn",
     "@typescript-eslint/space-infix-ops": "error",
