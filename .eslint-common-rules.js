@@ -23,7 +23,21 @@ module.exports = {
     "space-before-blocks": "error",
     "space-before-function-paren": ["error", "never"],
     "space-in-parens": ["error", "never"],
-
+    
+    "@typescript-eslint/explicit-member-accessibility": [
+      "error",
+      {
+        accessibility: "explicit",
+        overrides: {
+          accessors: "off",
+          constructors: "no-public",
+          methods: "explicit",
+          properties: "explicit",
+          parameterProperties: "explicit",
+        },
+        ignoredMethodNames: ["ngOnInit", "ngOnChanges", "ngOnDestroy", "ngDoCheck", "ngAfterViewInit", "ngAfterContentInit"],
+      },
+    ],
     "@typescript-eslint/explicit-function-return-type": ["warn", { allowExpressions: true }],
     "@typescript-eslint/type-annotation-spacing": ["error", { after: true }],
     "@typescript-eslint/no-redundant-type-constituents": "warn",
