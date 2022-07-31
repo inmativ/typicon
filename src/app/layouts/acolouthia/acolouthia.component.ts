@@ -7,7 +7,8 @@ import { OldDate } from '@utils';
 
 import { map } from 'rxjs';
 
-import { Menologion, WorshipService } from './services';
+import { Menologion } from './typicon/menologion';
+import { WorshipService } from './typicon/worships';
 
 @Component({
   selector: 'app-acolouthia',
