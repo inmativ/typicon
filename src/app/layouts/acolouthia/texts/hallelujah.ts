@@ -1,7 +1,9 @@
-import { Doer } from '../typicon/worships';
+import { Doer, Replica } from '../typicon/worships/models';
 
-export const hallelujah = [
-  { doer: Doer.Чтец, text: 'Аллилуиа, Аллилуиа, Аллилуиа, слава Тебе, Боже' },
-  { doer: Doer.Чтец, text: 'Аллилуиа, Аллилуиа, Аллилуиа, слава Тебе, Боже' },
-  { doer: Doer.Чтец, text: 'Аллилуиа, Аллилуиа, Аллилуиа, слава Тебе, Боже' },
-];
+export function hallelujah(doer = Doer.Чтец): Replica[] {
+  return [
+    { doer, text: 'Аллилуиа, Аллилуиа, Аллилуиа, слава Тебе, Боже' },
+    { doer, text: 'Аллилуиа, Аллилуиа, Аллилуиа, слава Тебе, Боже' },
+    { doer, text: 'Аллилуиа, Аллилуиа, Аллилуиа, слава Тебе, Боже' },
+  ];
+}

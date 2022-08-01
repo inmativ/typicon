@@ -1,4 +1,4 @@
-import { Doer } from '../typicon/worships';
+import { Doer } from '../typicon/worships/models';
 import { acclamatia } from './acclamatia';
 
 export const трисвятоеПоОтчеНаш = [

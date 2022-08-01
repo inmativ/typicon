@@ -5,15 +5,17 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { SimpleDateString } from '@models';
 import { OldDate } from '@utils';
 
-import { map } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
+import { VespersComponent } from './components';
 import { Menologion } from './typicon/menologion';
+import { Worship } from './typicon/menologion/models';
 import { WorshipService } from './typicon/worships';
 
 @Component({
   selector: 'app-acolouthia',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, VespersComponent],
   providers: [WorshipService, Menologion],
   templateUrl: 'acolouthia.component.html',
   styleUrls: ['acolouthia.component.scss'],
@@ -22,17 +24,20 @@ import { WorshipService } from './typicon/worships';
 export class AcolouthiaComponent {
   public date = this._getControl();
 
-  public test = '';
+  public readonly worship$: Observable<Worship>;
 
   constructor(private readonly _worshipService: WorshipService) {
-    this.date.valueChanges
-      .pipe(
-        map((dateString) => new OldDate(dateString)),
-        map((oldDate) => this._worshipService.getByDate(oldDate)),
-      )
-      .subscribe((params) => this.test = JSON.stringify(params));
+    this.worship$ = this.date.valueChanges.pipe(
+      map((dateString) => new OldDate(dateString)),
+      map((oldDate) => this._worshipService.getByDate(oldDate)),
+      tap({
+        next: (value) => console.log('next: ', value),
+        error: (error: unknown) => console.log('error: ', error),
+        complete: () => console.log('complete'),
+      }),
+    );
 
-    this.date.setValue('2022-07-31');
+    setTimeout(() => this.date.setValue('2022-07-31'), 0);
   }
 
   private _getControl(): FormControl<SimpleDateString> {

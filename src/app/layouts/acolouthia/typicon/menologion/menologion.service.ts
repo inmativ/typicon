@@ -4,16 +4,26 @@ import { DAY } from '@constants';
 import { IOldDate, OldDate } from '@utils';
 
 import { MENOLOGION } from './constants';
-import { Affection, Memory } from './models';
+import { Affection, Memory, Worship } from './models';
 
 @Injectable()
 export class Menologion {
-  public getMemory(date: IOldDate) {
-    const [memory] = this.getMemoryList(date);
+  public getMemory(date: IOldDate): Worship {
+    const [Memory] = this.getMemoryList(date);
 
     const affection = this._getAffection(date);
 
-    return affection?.affect(memory);
+    const affectionMemory = affection
+      ? affection.affect(Memory)
+      : this._instance(Memory);
+
+    return affectionMemory;
+  }
+
+  private _instance(Memory: Memory): Worship {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return new Memory();
   }
 
   public getMemoryList(date: IOldDate): Memory[] {

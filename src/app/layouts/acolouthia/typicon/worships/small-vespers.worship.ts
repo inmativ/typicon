@@ -1,18 +1,17 @@
-import { acclamatia, hallelujah, Kyrie, приидитеПоклонимся, славаИНыне } from '../../texts';
+import { acclamatia, hallelujah, Kyrie, приидитеПоклонимсяТрижды, славаИНыне } from '../../texts';
 import { psalm103 } from '../../texts/psalms';
-import { стихирыГосподиВоззвах } from '../../texts/sticheron';
 import { Doer, Replica } from './models';
 
 export function smallVespers(): Replica[] {
   return [
     acclamatia.благословенБогНаш,
-    { doer: Doer.Чтец, text: приидитеПоклонимся },
+    { doer: Doer.Чтец, text: приидитеПоклонимсяТрижды },
     { doer: Doer.Чтец, text: psalm103, features: 'тихо и кротким гласом' },
-    славаИНыне,
-    ...hallelujah,
+    славаИНыне(),
+    ...hallelujah(),
     ...Kyrie(3),
-    славаИНыне,
-    ...стихирыГосподиВоззвах({ count: 4 }),
+    славаИНыне(),
+    // ...стихирыГосподиВоззвах({ count: 4 }),
     { doer: Doer.Хор, text: 'Свете тихий:' },
   ];
   `

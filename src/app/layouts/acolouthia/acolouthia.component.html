@@ -1,4 +1,7 @@
 <!-- TODO: Нужно написать datepicker для старого стиля -->
 Дата по новому стилю
 <input type="date" [formControl]="date" />
-<pre>{{ test }}</pre>
+
+<ng-container *ngIf="worship$ | async as worship">
+  <app-vespers [vespers]="worship.vespers"></app-vespers>
+</ng-container>

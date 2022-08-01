@@ -1,0 +1,43 @@
+@import "mixins/text";
+
+@mixin cinnabar {
+  color: red;
+  font-weight: bold;
+}
+
+:host {
+  display: block;
+  overflow: auto;
+}
+
+:host([character="choir"]) {
+  font-size: 1.2em;
+  line-height: 1.3em;
+}
+
+:host([character="priest"]),
+:host([character="clergy"]) {
+  line-height: 1.3em;
+  font-weight: bold;
+}
+
+.character {
+  white-space: nowrap;
+  @include cinnabar;
+}
+
+.replica {
+  @include text;
+  text-indent: 20px;
+
+  &::first-letter,
+  &::ng-deep p::first-letter,
+  &::ng-deep span::first-letter {
+    @include cinnabar;
+  }
+
+  &::ng-deep span {
+    text-indent: 0;
+    display: inline-block;
+  }
+}

@@ -1,17 +1,17 @@
+import { ГЛАС } from '../octoechos/models';
+
 export enum Doer {
+  Духовенство,
   Иерей,
+  Диакон,
   Чтец,
   Хор,
 }
 
-export enum ReplicaType {
-  'начальный возглас',
-  'отпуст',
-}
-
 export type Replica = {
+  title?: string;
   doer: Doer;
-  type?: ReplicaType;
+  глас?: ГЛАС;
   text: string;
   features?: string;
 };

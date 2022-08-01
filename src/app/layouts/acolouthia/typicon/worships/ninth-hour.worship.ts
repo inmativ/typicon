@@ -1,7 +1,7 @@
 import { hallelujah, Kyrie, славаИНыне } from '../../texts';
 import { usualBeginning } from '../../texts/horologion';
 import { psalm83, psalm84, psalm85 } from '../../texts/psalms';
-import { Doer, Replica, ReplicaType } from './models';
+import { Doer, Replica } from './models';
 
 export type ninthHourConfig = { insideTemple: boolean; troparions: string[] };
 
@@ -13,15 +13,15 @@ export function ninthHour(config: ninthHourConfig): Replica[] {
     { doer: Doer.Чтец, text: psalm83 },
     { doer: Doer.Чтец, text: psalm84 },
     { doer: Doer.Чтец, text: psalm85 },
-    славаИНыне,
-    ...hallelujah,
+    славаИНыне(),
+    ...hallelujah(),
     ...Kyrie(3),
     ...слава(troparions).иНыне(dogmatic),
     { doer: Doer.Чтец, text: 'Владыко Господи, Иисусе Христе Боже наш…' },
   ];
 
   if (config.insideTemple) {
-    const отпуст: Replica[] = [{ doer: Doer.Иерей, text: 'отпуст', type: ReplicaType['отпуст'] }];
+    const отпуст: Replica[] = [{ doer: Doer.Иерей, text: 'отпуст' }];
     hour.push(...отпуст);
   }
 

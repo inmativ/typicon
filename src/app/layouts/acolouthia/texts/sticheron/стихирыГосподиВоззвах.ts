@@ -1,6 +1,7 @@
-import { Doer, Replica } from '../../typicon/worships';
+import { ГЛАС } from '../../typicon/octoechos/models';
+import { Doer, Replica } from '../../typicon/worships/models';
 
-export function стихирыГосподиВоззвах({ count }: { count: number }): Replica[] {
+export function стихирыГосподиВоззвах(глас: ГЛАС, count: number): Replica[] {
   return [
     { doer: Doer.Хор, text: 'Господи, воззвах:' },
     { doer: Doer.Чтец, text: 'Положи, Господи: 140, 141, 129, 116' },

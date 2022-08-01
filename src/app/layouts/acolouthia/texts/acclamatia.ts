@@ -1,4 +1,4 @@
-import { Doer } from '../typicon/worships';
+import { Doer } from '../typicon/worships/models';
 
 export const acclamatia = {
   благословенБогНаш: { doer: Doer.Иерей, text: 'Благословен Бог наш:' },

@@ -1,7 +1,7 @@
-import { Doer, Replica } from '../../typicon/worships';
+import { Doer, Replica } from '../../typicon/worships/models';
 import { acclamatia } from '../acclamatia';
-import { славаИНыне } from '../славаИНыне';
-import { трисвятоеПоОтчеНаш } from '../трисвятоеПоОтчеНаш';
+import { славаИНыне } from '../слава-и-ныне';
+import { трисвятоеПоОтчеНаш } from '../трисвятое-по-отче-наш';
 
 export function usualBeginning(): Replica[] {
   return [
@@ -10,7 +10,7 @@ export function usualBeginning(): Replica[] {
     { doer: Doer.Чтец, text: 'Царю Небесный...' },
     ...трисвятоеПоОтчеНаш,
     { doer: Doer.Чтец, text: 'Господи, помилуй (12 раз)' },
-    славаИНыне,
+    славаИНыне(),
     { doer: Doer.Чтец, text: 'Приидите, поклонимся...' },
   ];
 }
