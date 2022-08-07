@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
+import { LittleEkteniaComponent } from '../../little-ektenia';
 import { ReplicaComponent } from '../../replica';
-import { LittleEkteniaComponent } from './little-ektenia';
 import { BlessedManFeatures } from './models';
 
 @Component({

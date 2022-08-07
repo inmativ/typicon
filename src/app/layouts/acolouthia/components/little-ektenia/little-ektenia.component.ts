@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { ReplicaComponent } from '../../../replica';
+import { ReplicaComponent } from '../replica';
 
 @Component({
   selector: 'app-little-ektenia',
