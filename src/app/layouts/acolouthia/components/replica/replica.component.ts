@@ -1,10 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-replica',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: 'replica.component.html',
   styleUrls: ['replica.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

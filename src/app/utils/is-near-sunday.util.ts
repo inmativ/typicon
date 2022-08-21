@@ -1,8 +1,10 @@
-import { Monthes, WeekDay } from '@models';
+import { WeekDay } from '@angular/common';
+
+import { Monthes } from '@models';
 import { OldDate } from '@utils';
 
 export function isNearSunday(date: Date): boolean {
-  const isSunday = date.getDay() === WeekDay.SUNDAY;
+  const isSunday = date.getDay() === WeekDay.Sunday;
 
   return isSunday && isNear();
 

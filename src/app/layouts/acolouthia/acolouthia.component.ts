@@ -1,22 +1,16 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 import { SimpleDateString } from '@models';
 import { OldDate } from '@utils';
 
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
-import { VespersComponent } from './components';
-import { Menologion } from './typicon/menologion';
-import { Worship } from './typicon/menologion/models';
-import { WorshipService } from './typicon/worships';
+import { WorshipService } from './typicon';
+import { Worship } from './typicon/models';
 
 @Component({
   selector: 'app-acolouthia',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, VespersComponent],
-  providers: [WorshipService, Menologion],
   templateUrl: 'acolouthia.component.html',
   styleUrls: ['acolouthia.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,14 +24,7 @@ export class AcolouthiaComponent {
     this.worship$ = this.date.valueChanges.pipe(
       map((dateString) => new OldDate(dateString)),
       map((oldDate) => this._worshipService.getByDate(oldDate)),
-      tap({
-        next: (value) => console.log('next: ', value),
-        error: (error: unknown) => console.log('error: ', error),
-        complete: () => console.log('complete'),
-      }),
     );
-
-    setTimeout(() => this.date.setValue('2022-07-31'), 0);
   }
 
   private _getControl(): FormControl<SimpleDateString> {

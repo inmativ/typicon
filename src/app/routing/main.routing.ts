@@ -4,7 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 const routes: Route[] = [
   {
     path: '',
-    loadComponent: () => import('../layouts/acolouthia').then((mod) => mod.AcolouthiaComponent),
+    loadChildren: () => import('../layouts/acolouthia').then((mod) => mod.AcolouthiaModule),
   },
 ];
 

@@ -1,1 +1,1 @@
-export * from './acolouthia.component';
+export * from './acolouthia.module';
