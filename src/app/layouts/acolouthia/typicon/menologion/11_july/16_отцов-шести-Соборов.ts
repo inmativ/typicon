@@ -6,7 +6,7 @@ import { Affection_DEP, MenologionWorship, TypikonSign } from '../../../typicon/
 export class ОтцовШестиСоборов implements MenologionWorship {
   public static affection: Affection_DEP = {
     check: (date) => isNearSunday(date),
-    affect: (memory) => new this(),
+    affect: () => new this(),
   };
 
   public readonly title = 'Ст҃ы́хъ ѻ҆тцє́въ шестѝ вселе́нскихъ собо́рѡвъ:';

@@ -33,9 +33,7 @@ type Memory_DEP = {
 };
 
 export type Memory = {
-  description?: string;
   affection?: Affection;
-  service?: Service;
   new(): MenologionWorship
 };
 

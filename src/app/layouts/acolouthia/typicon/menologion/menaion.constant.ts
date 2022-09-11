@@ -12,7 +12,7 @@ import { JUNE } from './10_june';
 import { JULY } from './11_july';
 import { AUGUST } from './12_august';
 
-export const MENOLOGION: Day[][] = [
+export const MENOLOGION: Record<number, Day>[] = [
   JANUARY,
   FEBRUARY,
   MARCH,
