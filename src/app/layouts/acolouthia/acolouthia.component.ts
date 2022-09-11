@@ -6,7 +6,7 @@ import { OldDate } from '@utils';
 
 import { map, Observable } from 'rxjs';
 
-import { WorshipService } from './typicon';
+import { Typicaris } from './typicon';
 import { Worship } from './typicon/models';
 
 @Component({
@@ -20,7 +20,7 @@ export class AcolouthiaComponent {
 
   public readonly worship$: Observable<Worship>;
 
-  constructor(private readonly _worshipService: WorshipService) {
+  constructor(private readonly _worshipService: Typicaris) {
     this.worship$ = this.date.valueChanges.pipe(
       map((dateString) => new OldDate(dateString)),
       map((oldDate) => this._worshipService.getByDate(oldDate)),

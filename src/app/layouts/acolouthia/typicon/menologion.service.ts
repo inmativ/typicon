@@ -3,35 +3,32 @@ import { Injectable } from '@angular/core';
 import { DAY } from '@constants';
 import { IOldDate, OldDate } from '@utils';
 
-import { MENAION } from '../menaion/constants';
-import { MenaionWorship } from '../menaion/models';
-import { Affection, Memory } from './models';
+import { MENOLOGION } from './menologion';
+import { Affection, Memory, MenologionWorship } from './models';
 
 @Injectable()
 export class Menologion {
-  public getMemory(date: IOldDate): MenaionWorship {
+  public getMemory(date: IOldDate): MenologionWorship {
+    /*
+     TODO: В один день обычно бывает несколько памятей разных святых
+     или несколько вариантов празднования памяти одного святого.
+     Нужен механизм выбора конкретной памяти. */
     const [Memory] = this.getMemoryList(date);
 
     const affection = this._getAffection(date);
 
     const affectionMemory = affection
       ? affection.affect(Memory)
-      : this._instance(Memory);
+      : new Memory();
 
     return affectionMemory;
-  }
-
-  private _instance(Memory: Memory): MenaionWorship {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    return new Memory();
   }
 
   public getMemoryList(date: IOldDate): Memory[] {
     const dayIndex = date.getDate() - 1;
     const monthNumber = date.getMonth();
 
-    const month = MENAION[monthNumber];
+    const month = MENOLOGION[monthNumber];
     const { memories } = month[dayIndex];
 
     return memories;

@@ -7,7 +7,7 @@ import { AcolouthiaComponent } from './acolouthia.component';
 import { GreatVespersComponent, LittleEkteniaComponent, ReplicaComponent, VespersComponent } from './components';
 import { BlessedManComponent, KyrieEkekraxaComponent } from './components/vespers';
 import { EchoModule } from './pipes/echo';
-import { Menologion, WorshipService } from './typicon';
+import { Menologion, Typicaris } from './typicon';
 
 const routes: Route[] = [{ path: '', component: AcolouthiaComponent, pathMatch: 'full' }];
 
@@ -28,6 +28,6 @@ const routes: Route[] = [{ path: '', component: AcolouthiaComponent, pathMatch: 
     KyrieEkekraxaComponent,
     LittleEkteniaComponent,
   ],
-  providers: [WorshipService, Menologion],
+  providers: [Typicaris, Menologion],
 })
 export class AcolouthiaModule {}
