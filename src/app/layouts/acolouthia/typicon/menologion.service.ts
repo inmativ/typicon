@@ -15,6 +15,7 @@ export class Menologion {
      Нужен механизм выбора конкретной памяти. */
     const [Memory] = this.getMemoryList(date);
 
+    // TODO: Приводить в порядок шрифты.
     const affection = this._getAffection(date);
 
     const affectionMemory = affection
