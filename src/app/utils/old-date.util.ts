@@ -1,8 +1,7 @@
-import { DAY } from '@constants';
-import { DayNumber, MonthNumber, SimpleDateString, YearNumber } from '@models';
+import { WeekDay } from '@angular/common';
 
-const THIRTEEN_LOWER_EDGE = -2202768000000;
-const THIRTEEN_UPPER_EDGE = 4108752000000;
+import { DAY } from '@constants';
+import { MonthDay, SimpleDateString, TimeMS } from '@models';
 
 /**
  @description
@@ -17,41 +16,58 @@ const THIRTEEN_UPPER_EDGE = 4108752000000;
  */
 const MS_DIFFERENCE = 13 * DAY;
 
-export type IOldDate = Date
+export interface IOldDate {
+  getMonthDay(): MonthDay;
+  getDay(): WeekDay;
+  getTime(): TimeMS;
+}
 
-export class OldDate extends Date implements IOldDate {
-  constructor(dateString?: SimpleDateString | number | Date) {
-    dateString ? super(dateString) : super();
+export class OldDate implements IOldDate {
+  private readonly _oldDate: Date;
 
-    this._assertRange();
+  constructor(date?: MonthDay | SimpleDateString | number) {
+    this._oldDate = this._getOldDate(date);
   }
 
-  override setDate(number: number): number {
-    return super.setDate(number + 13);
+  public getMonthDay(): MonthDay {
+    const month = this._oldDate.getMonth();
+    const day = this._oldDate.getDate();
+    return { month, day };
   }
 
-  override getDate(): DayNumber {
-    return this._oldDate().getDate();
+  public getDay(): WeekDay {
+    return this._oldDate.getDay();
   }
 
-  override getMonth(): MonthNumber {
-    return this._oldDate().getMonth();
+  public getTime(): TimeMS {
+    return this._oldDate.getTime();
   }
 
-  override getFullYear(): YearNumber {
-    return this._oldDate().getFullYear();
-  }
+  private _getOldDate(date: number | MonthDay | SimpleDateString | undefined): Date {
+    const newDate = this._getNewDate(date);
 
-  private _assertRange(): void {
-    const time = super.getTime();
+    const newTime = newDate.getTime();
 
-    if (time < THIRTEEN_LOWER_EDGE || time > THIRTEEN_UPPER_EDGE) {
-      throw new Error('out of date range');
-    }
-  }
-
-  private _oldDate(): Date {
-    const newTime = super.getTime();
     return new Date(newTime - MS_DIFFERENCE);
+  }
+
+  private _getNewDate(date?: number | MonthDay | SimpleDateString): Date {
+    if (!date) {
+      return new Date();
+    }
+
+    if (typeof date === 'object') {
+      return this._getDateFromMonthDay(date);
+    }
+
+    return new Date(date);
+  }
+
+  private _getDateFromMonthDay({ month, day }: MonthDay): Date {
+    const date = new Date();
+    date.setMonth(month);
+    date.setDate(day);
+
+    return date;
   }
 }

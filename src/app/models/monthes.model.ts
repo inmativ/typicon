@@ -1,4 +1,4 @@
-export enum Monthes {
+export enum Month {
   JANUARY,
   FEBRUARY,
   MARCH,
@@ -10,5 +10,5 @@ export enum Monthes {
   SEPTEMBER,
   OCTOBER,
   NOVEMBER,
-  DECEMBER
+  DECEMBER,
 }

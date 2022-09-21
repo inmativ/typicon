@@ -25,13 +25,10 @@ export class Menologion {
   }
 
   public getMemoryList(date: IOldDate): Memory[] {
-    const dayNumber = date.getDate();
-    const monthNumber = date.getMonth();
+    const { day, month } = date.getMonthDay();
 
-    const month = MENOLOGION[monthNumber];
-    const day = month[dayNumber];
-
-    return day?.memories || [];
+    // TODO: Пустой массив - временное решение, пока не написано хотя бы по одной службе для каждого дня.
+    return MENOLOGION[month][day]?.memories || [];
   }
 
   private _getAffection(date: IOldDate): Affection | undefined {

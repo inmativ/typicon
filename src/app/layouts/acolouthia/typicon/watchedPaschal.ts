@@ -1,8 +1,6 @@
 import { WeekDay } from '@angular/common';
 
-import { Monthes } from '@models';
-
-type MonthDay = { month: Monthes; day: number };
+import { Month, MonthDay } from '@models';
 
 type BorderKeyNote = {
   Christmas: WeekDay;
@@ -16,8 +14,8 @@ type BorderKey = string;
 export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
   А: {
     Christmas: WeekDay.Thursday,
-    Triodion: { month: Monthes.JANUARY, day: 11 },
-    Pentecost: { month: Monthes.MAY, day: 10 },
+    Triodion: { month: Month.JANUARY, day: 11 },
+    Pentecost: { month: Month.MAY, day: 10 },
     original: `мясопуст ианнуария 25. неделя сыропустная февруария 1.
 
 Аще будет високос:
@@ -49,8 +47,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 ` },
   Б: {
     Christmas: WeekDay.Wednesday,
-    Triodion: { month: Monthes.JANUARY, day: 12 },
-    Pentecost: { month: Monthes.MAY, day: 11 },
+    Triodion: { month: Month.JANUARY, day: 12 },
+    Pentecost: { month: Month.MAY, day: 11 },
     original: `мясопуст ианнуария 26.
     неделя сыропустная февруария 2.
 
@@ -84,8 +82,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   В: {
     Christmas: WeekDay.Tuesday,
-    Triodion: { month: Monthes.JANUARY, day: 13 },
-    Pentecost: { month: Monthes.MAY, day: 12 },
+    Triodion: { month: Month.JANUARY, day: 13 },
+    Pentecost: { month: Month.MAY, day: 12 },
     original: `мясопуст ианнуария 27.
     неделя сыропустная февруария 3.
 
@@ -119,8 +117,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Г: {
     Christmas: WeekDay.Monday,
-    Triodion: { month: Monthes.JANUARY, day: 14 },
-    Pentecost: { month: Monthes.MAY, day: 13 },
+    Triodion: { month: Month.JANUARY, day: 14 },
+    Pentecost: { month: Month.MAY, day: 13 },
     original: `мясопуст великий ианнуария 28.
     неделя сыропустная февруария 4.
 
@@ -154,8 +152,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Д: {
     Christmas: WeekDay.Sunday,
-    Triodion: { month: Monthes.JANUARY, day: 15 },
-    Pentecost: { month: Monthes.MAY, day: 14 },
+    Triodion: { month: Month.JANUARY, day: 15 },
+    Pentecost: { month: Month.MAY, day: 14 },
     original: `мясопуст ианнуария 29. неделя сыропустная февруария 5.
 
 Аще високос:
@@ -188,8 +186,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Е: {
     Christmas: WeekDay.Saturday,
-    Triodion: { month: Monthes.JANUARY, day: 16 },
-    Pentecost: { month: Monthes.MAY, day: 15 },
+    Triodion: { month: Month.JANUARY, day: 16 },
+    Pentecost: { month: Month.MAY, day: 15 },
     original: `мясопуст великий ианнуария 30. неделя сыропустная февруария 6.
 
 Аще високос:
@@ -221,8 +219,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ж: {
     Christmas: WeekDay.Friday,
-    Triodion: { month: Monthes.JANUARY, day: 17 },
-    Pentecost: { month: Monthes.MAY, day: 16 },
+    Triodion: { month: Month.JANUARY, day: 17 },
+    Pentecost: { month: Month.MAY, day: 16 },
     original: `мясопуст ианнуария 31. неделя сыропустная февруария 7.
 
 Аще високос:
@@ -255,8 +253,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ѕ: {
     Christmas: WeekDay.Thursday,
-    Triodion: { month: Monthes.JANUARY, day: 18 },
-    Pentecost: { month: Monthes.MAY, day: 17 },
+    Triodion: { month: Month.JANUARY, day: 18 },
+    Pentecost: { month: Month.MAY, day: 17 },
     original: `мясопуст февруария 1. неделя сыропустная февруария 8.
 
 Аще високос:
@@ -289,8 +287,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   З: {
     Christmas: WeekDay.Wednesday,
-    Triodion: { month: Monthes.JANUARY, day: 19 },
-    Pentecost: { month: Monthes.MAY, day: 18 },
+    Triodion: { month: Month.JANUARY, day: 19 },
+    Pentecost: { month: Month.MAY, day: 18 },
     original: `мясопуст февруария 2. неделя сыропустная февруария 9.
 
 Аще високос:
@@ -321,8 +319,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   И: {
     Christmas: WeekDay.Tuesday,
-    Triodion: { month: Monthes.JANUARY, day: 20 },
-    Pentecost: { month: Monthes.MAY, day: 19 },
+    Triodion: { month: Month.JANUARY, day: 20 },
+    Pentecost: { month: Month.MAY, day: 19 },
     original: `мясопуст февруария 3. неделя сыропустная февруария 10.
 
 Аще високос:
@@ -355,8 +353,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   І: {
     Christmas: WeekDay.Monday,
-    Triodion: { month: Monthes.JANUARY, day: 21 },
-    Pentecost: { month: Monthes.MAY, day: 20 },
+    Triodion: { month: Month.JANUARY, day: 21 },
+    Pentecost: { month: Month.MAY, day: 20 },
     original: `мясопуст февруария 4. неделя сыропустная февруария 11.
 
 Аще високос:
@@ -389,8 +387,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   К: {
     Christmas: WeekDay.Sunday,
-    Triodion: { month: Monthes.JANUARY, day: 22 },
-    Pentecost: { month: Monthes.MAY, day: 21 },
+    Triodion: { month: Month.JANUARY, day: 22 },
+    Pentecost: { month: Month.MAY, day: 21 },
     original: `мясопуст февруария 5. неделя сыропустная февруария 12.
 
 Аще високос:
@@ -423,8 +421,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Л: {
     Christmas: WeekDay.Saturday,
-    Triodion: { month: Monthes.JANUARY, day: 23 },
-    Pentecost: { month: Monthes.MAY, day: 22 },
+    Triodion: { month: Month.JANUARY, day: 23 },
+    Pentecost: { month: Month.MAY, day: 22 },
     original: `мясопуст февруария 6. неделя сыропустная февруария 13.
 
 Аще високос:
@@ -457,8 +455,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   М: {
     Christmas: WeekDay.Friday,
-    Triodion: { month: Monthes.JANUARY, day: 24 },
-    Pentecost: { month: Monthes.MAY, day: 23 },
+    Triodion: { month: Month.JANUARY, day: 24 },
+    Pentecost: { month: Month.MAY, day: 23 },
     original: `мясопуст февруария 7. неделя сыропустная февруария 14.
 
 Аще високос:
@@ -491,8 +489,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Н: {
     Christmas: WeekDay.Thursday,
-    Triodion: { month: Monthes.JANUARY, day: 25 },
-    Pentecost: { month: Monthes.MAY, day: 24 },
+    Triodion: { month: Month.JANUARY, day: 25 },
+    Pentecost: { month: Month.MAY, day: 24 },
     original: `мясопуст февруария 8. неделя сыропустная февруария 15.
 
 Аще високос:
@@ -525,8 +523,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   О: {
     Christmas: WeekDay.Wednesday,
-    Triodion: { month: Monthes.JANUARY, day: 26 },
-    Pentecost: { month: Monthes.MAY, day: 25 },
+    Triodion: { month: Month.JANUARY, day: 26 },
+    Pentecost: { month: Month.MAY, day: 25 },
     original: `мясопуст февруария 9. сыропуст февруария 16.
 
 Аще високос:
@@ -559,8 +557,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   П: {
     Christmas: WeekDay.Tuesday,
-    Triodion: { month: Monthes.JANUARY, day: 27 },
-    Pentecost: { month: Monthes.MAY, day: 26 },
+    Triodion: { month: Month.JANUARY, day: 27 },
+    Pentecost: { month: Month.MAY, day: 26 },
     original: `мясопуст февруария 10. сыропуст февруария 17.
 
 Аще високос:
@@ -593,8 +591,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Р: {
     Christmas: WeekDay.Monday,
-    Triodion: { month: Monthes.JANUARY, day: 28 },
-    Pentecost: { month: Monthes.MAY, day: 27 },
+    Triodion: { month: Month.JANUARY, day: 28 },
+    Pentecost: { month: Month.MAY, day: 27 },
     original: `мясопуст великий февруария 11. сыропуст февруария 18.
 
 Аще високос:
@@ -627,8 +625,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   С: {
     Christmas: WeekDay.Sunday,
-    Triodion: { month: Monthes.JANUARY, day: 29 },
-    Pentecost: { month: Monthes.MAY, day: 28 },
+    Triodion: { month: Month.JANUARY, day: 29 },
+    Pentecost: { month: Month.MAY, day: 28 },
     original: `мясопуст великий февруария 12. сыропуст февруария 19.
 
 Аще високос:
@@ -661,8 +659,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Т: {
     Christmas: WeekDay.Saturday,
-    Triodion: { month: Monthes.JANUARY, day: 30 },
-    Pentecost: { month: Monthes.MAY, day: 29 },
+    Triodion: { month: Month.JANUARY, day: 30 },
+    Pentecost: { month: Month.MAY, day: 29 },
     original: `мясопуст великий февруария 13. сыропуст февруария 20.
 
 Аще високос:
@@ -695,8 +693,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   У: {
     Christmas: WeekDay.Friday,
-    Triodion: { month: Monthes.JANUARY, day: 31 },
-    Pentecost: { month: Monthes.MAY, day: 30 },
+    Triodion: { month: Month.JANUARY, day: 31 },
+    Pentecost: { month: Month.MAY, day: 30 },
     original: `мясопуст великий февруария 14. сыропуст февруария 21.
 
 Аще високос:
@@ -729,8 +727,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ф: {
     Christmas: WeekDay.Thursday,
-    Triodion: { month: Monthes.FEBRUARY, day: 1 },
-    Pentecost: { month: Monthes.MAY, day: 31 },
+    Triodion: { month: Month.FEBRUARY, day: 1 },
+    Pentecost: { month: Month.MAY, day: 31 },
     original: `мясопуст великий февруария 15. сыропуст февруария 22.
 
 Аще високос:
@@ -763,8 +761,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Х: {
     Christmas: WeekDay.Wednesday,
-    Triodion: { month: Monthes.FEBRUARY, day: 1 },
-    Pentecost: { month: Monthes.JUNE, day: 1 },
+    Triodion: { month: Month.FEBRUARY, day: 1 },
+    Pentecost: { month: Month.JUNE, day: 1 },
     original: `мясопуст великий февруария 16. сыропуст февруария 23.
 
 Аще високос:
@@ -797,8 +795,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ѿ: {
     Christmas: WeekDay.Tuesday,
-    Triodion: { month: Monthes.FEBRUARY, day: 3 },
-    Pentecost: { month: Monthes.JUNE, day: 2 },
+    Triodion: { month: Month.FEBRUARY, day: 3 },
+    Pentecost: { month: Month.JUNE, day: 2 },
     original: `мясопуст великий февруария 17. сыропуст февруария 24.
 
 Аще високос:
@@ -830,8 +828,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ц: {
     Christmas: WeekDay.Monday,
-    Triodion: { month: Monthes.FEBRUARY, day: 4 },
-    Pentecost: { month: Monthes.JUNE, day: 3 },
+    Triodion: { month: Month.FEBRUARY, day: 4 },
+    Pentecost: { month: Month.JUNE, day: 3 },
     original: `мясопуст февруария 18. сыропуст февруария 25.
 
 Аще високос:
@@ -864,8 +862,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ч: {
     Christmas: WeekDay.Sunday,
-    Triodion: { month: Monthes.FEBRUARY, day: 5 },
-    Pentecost: { month: Monthes.JUNE, day: 4 },
+    Triodion: { month: Month.FEBRUARY, day: 5 },
+    Pentecost: { month: Month.JUNE, day: 4 },
     original: `мясопуст февруария 19. сыропуст февруария 26.
 
 Аще високос:
@@ -898,8 +896,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ш: {
     Christmas: WeekDay.Saturday,
-    Triodion: { month: Monthes.FEBRUARY, day: 6 },
-    Pentecost: { month: Monthes.JUNE, day: 5 },
+    Triodion: { month: Month.FEBRUARY, day: 6 },
+    Pentecost: { month: Month.JUNE, day: 5 },
     original: `мясопуст февруария 20. сыропуст февруария 27.
 
 Аще високос:
@@ -932,8 +930,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Щ: {
     Christmas: WeekDay.Friday,
-    Triodion: { month: Monthes.FEBRUARY, day: 7 },
-    Pentecost: { month: Monthes.JUNE, day: 6 },
+    Triodion: { month: Month.FEBRUARY, day: 7 },
+    Pentecost: { month: Month.JUNE, day: 6 },
     original: `мясопуст февруария 21. сыропуст февруария 28.
 
 Аще високос:
@@ -966,8 +964,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ъ: {
     Christmas: WeekDay.Thursday,
-    Triodion: { month: Monthes.FEBRUARY, day: 8 },
-    Pentecost: { month: Monthes.JUNE, day: 7 },
+    Triodion: { month: Month.FEBRUARY, day: 8 },
+    Pentecost: { month: Month.JUNE, day: 7 },
     original: `мясопуст февруария 22. сыропуст марта 1.
 
 Аще високос:
@@ -1000,8 +998,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ы: {
     Christmas: WeekDay.Wednesday,
-    Triodion: { month: Monthes.FEBRUARY, day: 9 },
-    Pentecost: { month: Monthes.JUNE, day: 8 },
+    Triodion: { month: Month.FEBRUARY, day: 9 },
+    Pentecost: { month: Month.JUNE, day: 8 },
     original: `мясопуст февруария 23. сыропуст марта 2.
 
 Аще високос:
@@ -1034,8 +1032,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ь: {
     Christmas: WeekDay.Tuesday,
-    Triodion: { month: Monthes.FEBRUARY, day: 10 },
-    Pentecost: { month: Monthes.JUNE, day: 9 },
+    Triodion: { month: Month.FEBRUARY, day: 10 },
+    Pentecost: { month: Month.JUNE, day: 9 },
     original: `мясопуст великий февруария 24. сыропуст марта 3.
 
 Аще високос:
@@ -1068,8 +1066,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ѣ: {
     Christmas: WeekDay.Monday,
-    Triodion: { month: Monthes.FEBRUARY, day: 11 },
-    Pentecost: { month: Monthes.JUNE, day: 10 },
+    Triodion: { month: Month.FEBRUARY, day: 11 },
+    Pentecost: { month: Month.JUNE, day: 10 },
     original: `мясопуст февруария 25. сыропуст марта 4.
 
 Аще високос:
@@ -1102,8 +1100,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ю: {
     Christmas: WeekDay.Sunday,
-    Triodion: { month: Monthes.FEBRUARY, day: 12 },
-    Pentecost: { month: Monthes.JUNE, day: 11 },
+    Triodion: { month: Month.FEBRUARY, day: 12 },
+    Pentecost: { month: Month.JUNE, day: 11 },
     original: `мясопуст великий февруария 26. сыропуст марта 5.
 
 Аще високос:
@@ -1136,8 +1134,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ѫ: {
     Christmas: WeekDay.Saturday,
-    Triodion: { month: Monthes.FEBRUARY, day: 13 },
-    Pentecost: { month: Monthes.JUNE, day: 12 },
+    Triodion: { month: Month.FEBRUARY, day: 13 },
+    Pentecost: { month: Month.JUNE, day: 12 },
     original: `мясопуст февруария 27. cыропуст марта 6.
 
 Аще високос:
@@ -1170,8 +1168,8 @@ export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
 
   Ѧ: {
     Christmas: WeekDay.Friday,
-    Triodion: { month: Monthes.FEBRUARY, day: 14 },
-    Pentecost: { month: Monthes.JUNE, day: 13 },
+    Triodion: { month: Month.FEBRUARY, day: 14 },
+    Pentecost: { month: Month.JUNE, day: 13 },
     original: `мясопуст великий февруария 28. сыропуст марта 7.
 
 Аще високос:

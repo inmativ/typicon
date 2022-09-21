@@ -1,20 +1,19 @@
 import { WeekDay } from '@angular/common';
 
-import { Monthes } from '@models';
-import { OldDate } from '@utils';
+import { WEEK_HALF } from '@constants';
+import { IOldDate } from '@utils';
 
-export function isNearSunday(date: Date): boolean {
+export function isNearSunday(date: IOldDate): boolean {
   const isSunday = date.getDay() === WeekDay.Sunday;
 
   return isSunday && isNear();
 
   function isNear(): boolean {
-    const memoryDate = new OldDate();
-    memoryDate.setMonth(Monthes.JULY);
-    memoryDate.setDate(16);
+    const { day } = date.getMonthDay();
 
-    const difference = date.getDate() - memoryDate.getDate();
+    // TODO: Не помню, что значит 16. Надо будет переписать.
+    const difference = day - 16;
 
-    return Math.abs(difference) <= 3;
+    return Math.abs(difference) <= WEEK_HALF;
   }
 }
