@@ -1,3 +1,4 @@
+export * from './border-key';
 export * from './day.model';
 export * from './menologion-worship.model';
 export * from './typikon-sign.model';

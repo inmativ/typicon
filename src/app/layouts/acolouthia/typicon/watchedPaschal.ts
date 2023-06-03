@@ -1,15 +1,15 @@
 import { WeekDay } from '@angular/common';
 
-import { Month, MonthDay } from '@models';
+import { Month, OldMonthDay } from '@models';
+
+import { BorderKey } from './models';
 
 type BorderKeyNote = {
   Christmas: WeekDay;
-  Triodion: MonthDay,
-  Pentecost: MonthDay,
+  Triodion: OldMonthDay,
+  Pentecost: OldMonthDay,
   original: string;
 };
-
-type BorderKey = string;
 
 export const watchedPaschal: Record<BorderKey, BorderKeyNote> = {
   А: {

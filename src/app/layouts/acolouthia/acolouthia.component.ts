@@ -25,6 +25,8 @@ export class AcolouthiaComponent {
       map((dateString) => new OldDate(dateString)),
       map((oldDate) => this._worshipService.getByDate(oldDate)),
     );
+
+    setTimeout(() => this.date.setValue('2022-09-18'), 0);
   }
 
   private _getControl(): FormControl<SimpleDateString> {

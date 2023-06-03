@@ -1,4 +1,6 @@
-export const Indiction = {
+import { BorderKey } from './models';
+
+export const Indiction: Record<number, { borderKey: BorderKey }> = {
   1941: { borderKey: 'П' },
   1942: { borderKey: 'Б' },
   1943: { borderKey: 'Ф' },

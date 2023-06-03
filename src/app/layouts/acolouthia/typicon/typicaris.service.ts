@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { IOldDate } from '@utils';
+import { DAY } from '@constants';
+import { IOldDate, OldDate } from '@utils';
 
 import { Menologion } from './menologion.service';
 
 import { ГЛАС } from '../octoechos/models';
-import { Worship } from './models';
+import { Indiction } from './indiction';
+import { MenologionWorship, Worship } from './models';
+import { watchedPaschal } from './watchedPaschal';
 
 // Этот сервис умеет составлять богослужение из имеющихся данных.
 // Часть логики находится в нём, а часть в шаблонах конкретных последований.
@@ -29,11 +32,32 @@ export class Typicaris {
   constructor(private readonly _menologion: Menologion) {}
 
   public getByDate(date: IOldDate): Worship {
-    const memory = this._menologion.getMemory(date);
+    const memory = {} as MenologionWorship/* this._menologion.getMemory(date) */;
+
+    const octoechosWorship = this._getOctoechosWorship(date);
+    console.log('octoechosWorship: ', octoechosWorship);
 
     // TODO: Здесь нужно по Пасхалии вычислить неделю по Пятидесятнице и глас.
 
     const day = { echo: ГЛАС.ОСЬМЫЙ };
     return { ...memory, ...day, vespers: {} };
+  }
+
+  private _getOctoechosWorship(date: IOldDate): unknown {
+    return this._getPentecostWeekNumber(date);
+  }
+
+  private _getPentecostWeekNumber(date: IOldDate): unknown {
+    const year = date.getYear();
+    const { borderKey } = Indiction[year];
+    const { Pentecost } = watchedPaschal[borderKey];
+    const pentecostDate = new OldDate(Pentecost);
+    const day = date.getTime() / DAY;
+    const pentecostDay = pentecostDate.getTime() / DAY;
+    const timeDifference = day - pentecostDay;
+    return timeDifference;
+
+    // TODO: Остановился на том,
+    // что нужно получить номер недели по Пятидесятнице отнять 1 и разделить на 8; остаток укажет глас.
   }
 }

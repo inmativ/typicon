@@ -1,10 +1,10 @@
 import { isNearSunday } from '@utils';
 
 import { ГЛАС } from '../../../octoechos/models';
-import { Affection_DEP, MenologionWorship, TypikonSign } from '../../../typicon/models';
+import { Affection, MenologionWorship, TypikonSign } from '../../../typicon/models';
 
 export class ОтцовШестиСоборов implements MenologionWorship {
-  public static affection: Affection_DEP = {
+  public static affection: Affection = {
     check: (date) => isNearSunday(date),
     affect: () => new this(),
   };

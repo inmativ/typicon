@@ -8,4 +8,4 @@ export type DayNumber = Flavor<number, 'day_number'>;
 export type YearNumber = Flavor<number, 'year_number'>;
 export type TimeMS = Flavor<number, 'time_in_ms'>;
 
-export type MonthDay = { month: Month; day: DayNumber; };
+export type OldMonthDay = { month: Month; day: DayNumber; };
