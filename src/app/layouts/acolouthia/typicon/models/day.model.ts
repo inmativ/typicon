@@ -1,7 +1,8 @@
-import { IOldDate } from '@utils';
+import { IДатаПоСтаромуСтилю } from '@utils';
+import { ДатаПоСтаромуСтилю } from '@utils/old-date';
 
 import { MenaionWorship } from '../../menaion/models';
-import { MenologionWorship } from './menologion-worship.model';
+import { СлужбаМинеи } from './menologion-worship.model';
 import { TypikonSign } from './typikon-sign.model';
 
 /** @deprecated */
@@ -9,19 +10,19 @@ export type Day_DEP = {
   memories: Memory_DEP[];
 };
 
-export type Day = {
-  memories: Memory[];
+export type ДеньМесяцеслова = {
+  памяти: Память[];
 };
 
 /** @deprecated */
 export type Affection_DEP = {
-  check: (date: IOldDate) => boolean;
-  affect: (memory: Memory_DEP | Memory) => MenaionWorship
+  check: (date: IДатаПоСтаромуСтилю) => boolean;
+  affect: (memory: Memory_DEP | Память) => MenaionWorship
 };
 
-export type Affection = {
-  check: (date: IOldDate) => boolean;
-  affect: (memory: Memory) => MenologionWorship
+export type Влияние = {
+  проверить: (дата: ДатаПоСтаромуСтилю) => boolean;
+  оказать: (память: Память) => СлужбаМинеи
 };
 
 /** @deprecated */
@@ -32,9 +33,9 @@ type Memory_DEP = {
   new(): MenaionWorship
 };
 
-export type Memory = {
-  affection?: Affection;
-  new(): MenologionWorship
+export type Память = {
+  влияние?: Влияние;
+  new(): СлужбаМинеи
 };
 
 export type Service = {

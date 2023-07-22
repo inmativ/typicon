@@ -2,7 +2,7 @@ import { Flavor } from '@utils/type';
 
 import { Month } from './monthes.model';
 
-export type SimpleDateString = Flavor<string, 'simple_date_string'>;
+export type SimpleDateString = `${number}-${number}-${number}`;
 export type MonthNumber = Flavor<number, 'month_number'>;
 export type DayNumber = Flavor<number, 'day_number'>;
 export type YearNumber = Flavor<number, 'year_number'>;

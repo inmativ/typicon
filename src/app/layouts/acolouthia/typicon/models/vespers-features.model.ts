@@ -1,1 +1,1 @@
-export type VespersFeatures = Record<string, unknown>;
+export type ОсобенностиВечерни = Record<string, unknown>;

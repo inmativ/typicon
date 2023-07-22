@@ -1,47 +1,48 @@
 import { Injectable } from '@angular/core';
 
-import { DAY } from '@constants';
-import { IOldDate, OldDate } from '@utils';
+import { assert } from '@utils';
+import { ДатаПоСтаромуСтилю } from '@utils/old-date';
 
-import { MENOLOGION } from './menologion';
-import { Affection, Memory, MenologionWorship } from './models';
+import { МЕСЯЦЕСЛОВ } from './menologion';
+import { Влияние, Память, СлужбаМинеи } from './models';
 
 @Injectable()
-export class Menologion {
-  public getMemory(date: IOldDate): MenologionWorship {
+export class Минея {
+  public найтиСлужбу(дата: ДатаПоСтаромуСтилю): СлужбаМинеи {
     /*
      TODO: В один день обычно бывает несколько памятей разных святых
      или несколько вариантов празднования памяти одного святого.
      Нужен механизм выбора конкретной памяти. */
-    const [Memory] = this.getMemoryList(date);
+    const [Служба] = this.получитьСписокСлужб(дата);
 
-    // TODO: Приводить в порядок шрифты.
-    const affection = this._getAffection(date);
+    const влияние = this._найтиВлияющие(дата);
 
-    const affectionMemory = affection
-      ? affection.affect(Memory)
-      : new Memory();
+    const изменённоеПоследование = влияние
+      ? влияние.оказать(Служба)
+      : new Служба();
 
-    return affectionMemory;
+    return изменённоеПоследование;
   }
 
-  public getMemoryList(date: IOldDate): Memory[] {
-    const { day, month } = date.getMonthDay();
+  public получитьСписокСлужб(date: ДатаПоСтаромуСтилю): Память[] {
+    const { day, month } = date
 
-    // TODO: Пустой массив - временное решение, пока не написано хотя бы по одной службе для каждого дня.
-    return MENOLOGION[month][day]?.memories || [];
+    const деньМесяцеслова = МЕСЯЦЕСЛОВ[month][day];
+    assert(деньМесяцеслова, 'нужно добавить заготовку последования на этот день.')
+    return деньМесяцеслова.памяти;
   }
 
-  private _getAffection(date: IOldDate): Affection | undefined {
-    const blankArray = Array(7).fill(date.getTime());
+  private _найтиВлияющие(дата: ДатаПоСтаромуСтилю): Влияние | undefined {
+    const началоПериода = дата.minus({ days: 3 });
+    const заготовкаПериода = Array(7).fill(началоПериода) as ДатаПоСтаромуСтилю[];
 
-    const nearbyMemories = blankArray.flatMap((time, i) => {
-      const nearbyDate = new OldDate(time + (i - 3) * DAY);
-      return this.getMemoryList(nearbyDate);
+    const соседниеПамяти = заготовкаПериода.flatMap((начало, i) => {
+      const соседняяДата = начало.plus({ days: i });
+      return this.получитьСписокСлужб(соседняяДата);
     });
 
-    const affectionMemory = nearbyMemories.find(({ affection }) => affection?.check(date));
+    const влияющаяПамять = соседниеПамяти.find(({ влияние }) => влияние?.проверить(дата));
 
-    return affectionMemory?.affection;
+    return влияющаяПамять?.влияние;
   }
 }

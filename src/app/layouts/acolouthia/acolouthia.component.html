@@ -3,5 +3,6 @@
 <input type="date" [formControl]="date" />
 
 <ng-container *ngIf="worship$ | async as worship">
-  <app-vespers [features]="worship.vespers" [echo]="worship.echo"></app-vespers>
+  <app-vespers [features]="worship['вечерня']" [echo]="worship['глас']"></app-vespers>
 </ng-container>
+

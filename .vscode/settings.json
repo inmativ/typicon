@@ -35,5 +35,6 @@
     "troparion",
     "troparions",
     "typicaris"
-  ]
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

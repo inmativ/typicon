@@ -1,12 +1,12 @@
 import { isNearSunday } from '@utils';
 
 import { ГЛАС } from '../../../octoechos/models';
-import { Affection, MenologionWorship, TypikonSign } from '../../../typicon/models';
+import { TypikonSign, Влияние, СлужбаМинеи } from '../../../typicon/models';
 
-export class ОтцовШестиСоборов implements MenologionWorship {
-  public static affection: Affection = {
-    check: (date) => isNearSunday(date),
-    affect: () => new this(),
+export class ОтцовШестиСоборов implements СлужбаМинеи {
+  public static affection: Влияние = {
+    проверить: (date) => isNearSunday(date),
+    оказать: () => new this(),
   };
 
   public readonly title = 'Ст҃ы́хъ ѻ҆тцє́въ шестѝ вселе́нскихъ собо́рѡвъ:';

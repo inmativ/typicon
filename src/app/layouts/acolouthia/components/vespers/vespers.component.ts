@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { ГЛАС } from '../../octoechos/models';
-import { VespersFeatures } from '../../typicon/models';
+import { ОсобенностиВечерни } from '../../typicon/models';
 
 @Component({
   selector: 'app-vespers',
@@ -10,7 +10,7 @@ import { VespersFeatures } from '../../typicon/models';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VespersComponent {
-  @Input() public features!: VespersFeatures;
+  @Input() public features!: ОсобенностиВечерни;
 
   @Input() public echo!: ГЛАС;
 

@@ -1,7 +1,7 @@
-import { Day } from '../../../typicon/models';
+import { ДеньМесяцеслова } from '../../../typicon/models';
 import { ЗахарииИЕлисаветыРодителейПредтечи } from './05_Захарии-и-Елисаветы-родителей-Предтечи.memory';
 
-export const SEPTEMBER: Record<number, Day> = {
+export const SEPTEMBER: Record<number, ДеньМесяцеслова> = {
   /*{
   {
     memories: [
@@ -94,7 +94,7 @@ export const SEPTEMBER: Record<number, Day> = {
     ],
   },
   */
-  5: { memories: [ЗахарииИЕлисаветыРодителейПредтечи] },
+  5: { памяти: [ЗахарииИЕлисаветыРодителейПредтечи] },
   /*
   {
     memories: [

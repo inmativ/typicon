@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { DAY } from '@constants';
-import { IOldDate, OldDate } from '@utils';
-
-import { Menologion } from './menologion.service';
+import { ДЕНЬ } from '@constants';
+import { OldDate } from '@utils';
+import { ДатаПоСтаромуСтилю } from '@utils/old-date';
 
 import { ГЛАС } from '../octoechos/models';
-import { Indiction } from './indiction';
-import { MenologionWorship, Worship } from './models';
-import { watchedPaschal } from './watchedPaschal';
+import { Indiction as Индиктион } from './indiction';
+import { Минея } from './menologion.service';
+import { Богослужение } from './models';
+import { пасхалияЗрячая as пасхалияЗрячая } from './watchedPaschal';
 
 // Этот сервис умеет составлять богослужение из имеющихся данных.
 // Часть логики находится в нём, а часть в шаблонах конкретных последований.
@@ -28,32 +28,31 @@ import { watchedPaschal } from './watchedPaschal';
 // },
 
 @Injectable()
-export class Typicaris {
-  constructor(private readonly _menologion: Menologion) {}
+export class Типикон {
+  constructor(private readonly _минея: Минея) { }
 
-  public getByDate(date: IOldDate): Worship {
-    const memory = {} as MenologionWorship/* this._menologion.getMemory(date) */;
+  public getByDate(date: ДатаПоСтаромуСтилю): Богослужение {
+    const службаМинеи = this._минея.найтиСлужбу(date);
 
-    const octoechosWorship = this._getOctoechosWorship(date);
-    console.log('octoechosWorship: ', octoechosWorship);
+    const службаОктоих = this._получитьСлужбуОктоиха(date);
 
     // TODO: Здесь нужно по Пасхалии вычислить неделю по Пятидесятнице и глас.
 
-    const day = { echo: ГЛАС.ОСЬМЫЙ };
-    return { ...memory, ...day, vespers: {} };
+    const day = { глас: ГЛАС.ОСЬМЫЙ };
+
+    return { ...службаМинеи, ...day, вечерня: {} };
   }
 
-  private _getOctoechosWorship(date: IOldDate): unknown {
-    return this._getPentecostWeekNumber(date);
+  private _получитьСлужбуОктоиха(date: ДатаПоСтаромуСтилю): unknown {
+    return this._вычислитьНомерНеделиПоПятидесятнице(date);
   }
 
-  private _getPentecostWeekNumber(date: IOldDate): unknown {
-    const year = date.getYear();
-    const { borderKey } = Indiction[year];
-    const { Pentecost } = watchedPaschal[borderKey];
-    const pentecostDate = new OldDate(Pentecost);
-    const day = date.getTime() / DAY;
-    const pentecostDay = pentecostDate.getTime() / DAY;
+  private _вычислитьНомерНеделиПоПятидесятнице(date: ДатаПоСтаромуСтилю): unknown {
+    const { ключГраниц } = Индиктион[date.year];
+    const { Пятидесятница } = пасхалияЗрячая[ключГраниц];
+    const pentecostDate = new OldDate(Пятидесятница);
+    const day = (date as any).получитьВремяМС() / ДЕНЬ;
+    const pentecostDay = pentecostDate.получитьВремяМС() / ДЕНЬ;
     const timeDifference = day - pentecostDay;
     return timeDifference;
 

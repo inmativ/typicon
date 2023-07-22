@@ -1,6 +1,6 @@
 import { WeekDay } from '@angular/common';
 
-import { DAY } from '@constants';
+import { ДЕНЬ } from '@constants';
 import { OldMonthDay, SimpleDateString, TimeMS, YearNumber } from '@models';
 
 /**
@@ -14,33 +14,36 @@ import { OldMonthDay, SimpleDateString, TimeMS, YearNumber } from '@models';
   15	16 марта 2200 — 16 марта 2300
   16	17 марта 2300 — 17 марта 2500
  */
-const MS_DIFFERENCE = 13 * DAY;
+const MS_DIFFERENCE = 13 * ДЕНЬ;
 
-export interface IOldDate {
-  getMonthDay(): OldMonthDay;
+export interface IДатаПоСтаромуСтилю {
+  получитьДень(): number;
+  получитьМесяц(): number;
   getDay(): WeekDay;
-  getTime(): TimeMS;
+  получитьВремяМС(): TimeMS;
   getYear(): YearNumber;
 }
 
-export class OldDate implements IOldDate {
+/** @deprecated */
+export class OldDate implements IДатаПоСтаромуСтилю {
   private readonly _oldDate: Date;
 
-  constructor(date?: OldMonthDay | SimpleDateString | number) {
-    this._oldDate = this._getOldDate(date);
+  constructor(дата?: OldMonthDay | SimpleDateString | number) {
+    this._oldDate = this._getOldDate(дата);
   }
 
-  public getMonthDay(): OldMonthDay {
-    const month = this._oldDate.getMonth();
-    const day = this._oldDate.getDate();
-    return { month, day };
+  public получитьДень(): number {
+    return this._oldDate.getDate();
+  }
+  public получитьМесяц(): number {
+    return this._oldDate.getMonth();
   }
 
   public getDay(): WeekDay {
     return this._oldDate.getDay();
   }
 
-  public getTime(): TimeMS {
+  public получитьВремяМС(): TimeMS {
     return this._oldDate.getTime();
   }
 

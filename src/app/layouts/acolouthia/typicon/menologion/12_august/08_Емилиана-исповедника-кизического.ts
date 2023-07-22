@@ -1,6 +1,6 @@
-import { MenologionWorship, TypikonSign } from '../../../typicon/models';
+import { TypikonSign, СлужбаМинеи } from '../../../typicon/models';
 
-export class ЕмилианаИсповедникаКизического implements MenologionWorship {
+export class ЕмилианаИсповедникаКизического implements СлужбаМинеи {
   public readonly typikonSign = TypikonSign.БЕЗ_ЗНАКА;
 
   public readonly title = 'Святаго Емилиана исповедника епископа Кизическаго:';

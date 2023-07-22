@@ -1,7 +1,7 @@
-import { Day } from '../../../typicon/models';
+import { ДеньМесяцеслова } from '../../../typicon/models';
 import { ЕмилианаИсповедникаКизического } from './08_Емилиана-исповедника-кизического';
 
-export const AUGUST: Record<number, Day> = {
+export const AUGUST: Record<number, ДеньМесяцеслова> = {
   /* {
     memories: [
       {
@@ -185,7 +185,7 @@ export const AUGUST: Record<number, Day> = {
       },
     ],
   } */
-  5: { memories: [ЕмилианаИсповедникаКизического] },
+  5: { памяти: [ЕмилианаИсповедникаКизического] },
   /* {
     memories: [
       {

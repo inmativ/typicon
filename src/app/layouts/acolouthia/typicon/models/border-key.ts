@@ -1,4 +1,4 @@
-export type BorderKey =
+export type КлючГраниц =
 | 'А'
 | 'Б'
 | 'В'

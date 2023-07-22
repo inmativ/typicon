@@ -1,6 +1,6 @@
-import { Day } from '../../../typicon/models';
+import { ДеньМесяцеслова } from '../../../typicon/models';
 
-export const JULY: Day[] = [/*
+export const JULY: ДеньМесяцеслова[] = [/*
   {
     memories: [
       {

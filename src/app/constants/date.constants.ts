@@ -1,2 +1,2 @@
-export const DAY = 86400000;
-export const WEEK = DAY * 7;
+export const ДЕНЬ = 86400000;
+export const НЕДЕЛЯ = ДЕНЬ * 7;
