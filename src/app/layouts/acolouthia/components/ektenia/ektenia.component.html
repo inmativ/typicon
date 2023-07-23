@@ -1,2 +1,9 @@
-<h2>Вели́кая ектения́:</h2>
-<app-replica character="deacon">Ми́ром Го́споду помо́лимся.</app-replica>
+<h2>{{ config.title | translate }}:</h2>
+<ng-container *ngFor="let replicaGroup of config.replicas">
+  <ng-container *ngFor="let deaconReplica of replicaGroup.deacon">
+    <app-replica character="deacon">{{ deaconReplica | translate }}</app-replica>
+    <app-replica character="choir">{{ replicaGroup.choir | translate }}</app-replica>
+  </ng-container>
+</ng-container>
+<app-replica character="priest">{{ config["возглас"] | translate }}</app-replica>
+<app-replica character="choir">{{ "ektenia.amen" | translate }}</app-replica>

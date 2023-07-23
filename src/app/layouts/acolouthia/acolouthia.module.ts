@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Route, RouterModule } from '@angular/router';
 
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
 import { AcolouthiaComponent } from './acolouthia.component';
 import {
   GreatVespersComponent,
@@ -26,6 +28,7 @@ const routes: Route[] = [{ path: '', component: AcolouthiaComponent, pathMatch: 
     ReactiveFormsModule,
     ReplicaComponent,
     RouterModule.forChild(routes),
+    TranslateModule.forRoot(),
   ],
   declarations: [
     AcolouthiaComponent,
@@ -37,4 +40,9 @@ const routes: Route[] = [{ path: '', component: AcolouthiaComponent, pathMatch: 
   ],
   providers: [Типикон, Минея],
 })
-export class AcolouthiaModule {}
+export class AcolouthiaModule {
+  constructor(translate: TranslateService) {
+    translate.setDefaultLang('ru');
+    translate.use('ru');
+  }
+}
