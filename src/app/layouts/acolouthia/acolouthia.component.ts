@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { SimpleDateString } from '@models';
@@ -29,9 +29,7 @@ export class AcolouthiaComponent {
   }
 
   private _getControl(): FormControl<SimpleDateString> {
-    const date = new Date()
-      .toLocaleDateString()
-      .replace(/\./g, '-') as SimpleDateString;
+    const date = new Date().toLocaleDateString().replace(/\./g, '-') as SimpleDateString;
 
     return new FormControl(date, { nonNullable: true });
   }

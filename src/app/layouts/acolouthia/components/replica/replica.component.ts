@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-replica',
+  standalone: true,
   templateUrl: 'replica.component.html',
   styleUrls: ['replica.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
